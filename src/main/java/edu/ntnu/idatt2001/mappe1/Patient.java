@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Patient extends Person implements Diagnosable {
     private String diagnosis;
 
-    public Patient(String firstName, String lastName, String socialSecurityNumber, String diagnosis) {
+    public   Patient(String firstName, String lastName, String socialSecurityNumber, String diagnosis) {
         super(firstName, lastName, socialSecurityNumber);
         this.diagnosis = diagnosis;
     }
@@ -31,4 +31,6 @@ public class Patient extends Person implements Diagnosable {
         Patient patient = (Patient) o;
         return getSocialSecurityNumber().equals(patient.getSocialSecurityNumber());
     }
+
+
 }

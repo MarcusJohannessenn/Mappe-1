@@ -41,6 +41,7 @@ public class Department {
                 return false;
             }
         }
+        employees.add(employee);
         return true;
     }
 
@@ -56,6 +57,7 @@ public class Department {
                 return false;
             }
         }
+        patients.add(patient);
         return true;
     }
 
@@ -91,5 +93,12 @@ public class Department {
     @Override
     public int hashCode() {
         return Objects.hash(departmentName);
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "patients=" + patients +
+                '}';
     }
 }
