@@ -10,5 +10,4 @@ public class Nurse extends Employee {
         super(firstName, lastName, socialSecurityNumber);
     }
 
-
 }
