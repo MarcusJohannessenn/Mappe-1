@@ -6,6 +6,7 @@ public class HospitalClient {
         Patient hei = new Patient("Marcus","jo", "34343", "retard");
         System.out.println(dep.addPatient(hei));
         System.out.println(dep.equals(hei));
+        dep.removePerson(hei);
 
         System.out.println(dep.getPatients());
     }

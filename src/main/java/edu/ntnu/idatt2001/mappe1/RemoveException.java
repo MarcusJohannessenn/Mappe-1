@@ -8,6 +8,6 @@ public class RemoveException {
     long serialVersionUID = 1L;
 
     RemoveException(String exception){
-
+        
     }
 }

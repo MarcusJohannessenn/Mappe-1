@@ -27,6 +27,11 @@ public class Department {
         this.departmentName = departmentName;
     }
 
+    /**
+     *
+     * @return ArrayList of patients
+     */
+
     public ArrayList<Patient> getPatients() {
         return (ArrayList<Patient>) patients.clone();
     }
@@ -35,6 +40,11 @@ public class Department {
         return (ArrayList<Employee>) employees.clone() ;
     }
 
+    /**
+     *
+     * @param employee
+     * @return false if employee exists, true emolployee have been added
+     */
     public boolean addEmployee(Employee employee){
         for (Employee employee1: employees){
             if(employee1.getSocialSecurityNumber().equals(employee.getSocialSecurityNumber())){
@@ -48,9 +58,8 @@ public class Department {
     /**
      *
      * @param patient
-     * @return false if patient exists in patients list, else return true
+     * @return false if patient exists in patients list, true if patient added to list
      */
-
     public boolean addPatient(Patient patient){
         for (Patient patient1: patients ){
             if(patient1.getSocialSecurityNumber().equals(patient.getSocialSecurityNumber())){
@@ -61,21 +70,32 @@ public class Department {
         return true;
     }
 
-    public void removePerson(Person person){
-        //If person is a patient
-        if(person instanceof Patient){
-            Patient patient = (Patient) person;
-            patients.remove(patient);
-            System.out.println(patient.getFirstName() + " removed from patients");
-        }
-        //If person is an employee
-        else if (person instanceof Employee){
-            Employee employee = (Employee) person;
-            employees.remove(employee);
-            System.out.println(employee.getFirstName() + " removed from employees");
-        }else{
+    /**
+     *
+     * @param person
+     * Removed person from the list person is in
+     */
 
-        }
+    public void removePerson(Person person){
+      try {
+          //If person is a patient
+          if (person instanceof Patient) {
+              Patient patient = (Patient) person;
+              patients.remove(patient);
+              System.out.println(patient.getFirstName() + " removed from patients");
+          }
+          //If person is an employee
+          else if (person instanceof Employee) {
+              Employee employee = (Employee) person;
+              employees.remove(employee);
+              System.out.println(employee.getFirstName() + " removed from employees");
+          } else {
+              String message = "wrong";
+              throw RemoveException;
+          }
+      }catch (RemoveException ){
+          System.out.println("Something went wrong buddy");
+      }
     }
 
     @Override
@@ -97,8 +117,7 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department{" +
-                "patients=" + patients +
-                '}';
+        return "Department" + departmentName +
+                "\npatients=" + patients;
     }
 }

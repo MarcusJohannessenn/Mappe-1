@@ -10,6 +10,10 @@ public class Hospital {
     private String hospitalName;
     private ArrayList<Department> departmentsRegister;
 
+    /**
+     *
+     * @param hospitalName
+     */
 
     public Hospital(String hospitalName) {
         this.hospitalName = hospitalName;
@@ -23,6 +27,11 @@ public class Hospital {
     public ArrayList<Department> getDepartmentsRegister() {
         return (ArrayList<Department>) departmentsRegister.clone();
     }
+
+    /**
+     *
+     * @param department
+     */
 
     public void addDepartment(Department department){
         for (Department department1: departmentsRegister){
